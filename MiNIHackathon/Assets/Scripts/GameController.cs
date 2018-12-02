@@ -7,6 +7,7 @@ public class GameController : MonoBehaviour {
     public GameObject Cursor;
 
     public Spawnable spawnObjectPrefab;
+    public Spawnable enemy;
 
     private bool IsGravity = false;
 
@@ -29,13 +30,15 @@ public class GameController : MonoBehaviour {
 	void Update ()
     {
 		
-	}
+    }
 
     public void StartGame()
     {
+        
         Debug.Log("GameController::StartGame");
-
+        
         SpawnObject();
+
     }
 
     public void SpawnObject()
@@ -101,4 +104,5 @@ public class GameController : MonoBehaviour {
             foundObject.isKinematic = true;
         }
     }
+    public Spawnable getEnemy() { return enemy; }
 }
