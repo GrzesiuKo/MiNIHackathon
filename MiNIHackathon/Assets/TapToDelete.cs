@@ -18,6 +18,10 @@ namespace HoloToolkit.Unity.SpatialMapping
     [RequireComponent(typeof(Interpolator))]
     public class TapToDelete : MonoBehaviour, IInputClickHandler
     {
+        public static int points = 0;
+
+        public TextMesh txt;
+
         [Tooltip("Distance from camera to keep the object while placing it.")]
         public float DefaultGazeDistance = 2.0f;
 
@@ -53,6 +57,8 @@ namespace HoloToolkit.Unity.SpatialMapping
 
         protected virtual void Start()
         {
+            txt = GameObject.Find("LabelPoints").GetComponent<TextMesh>();
+
             if (PlaceParentOnTap)
             {
                 ParentGameObjectToPlace = GetParentToPlace();
@@ -136,7 +142,12 @@ namespace HoloToolkit.Unity.SpatialMapping
             //HandlePlacement();
             //eventData.Use();
             if (gameObject != null)
-                Destroy(gameObject);    
+            {
+                Destroy(gameObject);
+                points++;
+                Debug.Log("wywal" + points);
+                txt.text = "Punkty: " + points.ToString();
+            }
         }
 
         private void HandlePlacement()

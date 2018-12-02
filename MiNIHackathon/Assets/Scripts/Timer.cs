@@ -36,7 +36,11 @@ public class Timer : MonoBehaviour {
                 enemy.GetComponent<Move>().setTree(TreeGameObject.transform);
                 gameController.Spawn(enemy, position, Quaternion.identity);
                 
-                enemy.GetComponent<Rigidbody>().isKinematic = false;
+                var rigidbody = enemy.GetComponent<Rigidbody>();
+                if(rigidbody != null)
+                {
+                    Debug.Log("");
+                }
             }
             
 
