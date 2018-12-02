@@ -11,7 +11,8 @@ public class GameController : MonoBehaviour {
     private bool IsGravity = false;
 
     // Use this for initialization
-    void Start () {
+    void Start ()
+    {
         if (!Cursor)
         {
             Debug.LogError("!Cursor");
@@ -25,7 +26,8 @@ public class GameController : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
 		
 	}
 
