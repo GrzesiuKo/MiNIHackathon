@@ -8,7 +8,8 @@ public class GameView : MonoBehaviour {
     public GameMenu gameMenu;
     
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
         if (!gameController)
         {
             Debug.LogError("!gameController");
@@ -20,7 +21,8 @@ public class GameView : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
 		
 	}
 
