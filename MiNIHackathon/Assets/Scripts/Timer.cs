@@ -14,26 +14,30 @@ public class Timer : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        int random = Random.Range(0, 40);
-        Vector3 position;
+        int random = Random.Range(0, 60);
 
         if (random == 1)
         {
             float randomRange = Random.Range(1, 3);
-            position = GameObject.FindWithTag("choinka").transform.position;
-            float alpha = Random.Range(0, 360);
-            float beta = Random.Range(0, 360);
-            float R = 3;
+            var TreeGameObject = GameObject.FindWithTag("choinka");
+            
+            if (TreeGameObject != null) {
+                var position = TreeGameObject.transform.position;
 
-            position.x = position.x + R * Mathf.Cos(alpha) * Mathf.Sin(beta);
-            position.y = position.y + R * Mathf.Cos(beta);
-            position.z = position.z + R * Mathf.Sin(alpha) * Mathf.Sin(beta);
+                float alpha = Random.Range(0, 360);
+                float beta = Random.Range(0, 360);
+                float R = 3;
 
-            //modifyPosition(position.x, randomRange);
-            //position.y = modifyPosition(position.y, randomRange);
-            //position.z = modifyPosition(position.z, randomRange);
+                position.x = position.x + R * Mathf.Cos(alpha) * Mathf.Sin(beta);
+                position.y = position.y + R * Mathf.Cos(beta);
+                position.z = position.z + R * Mathf.Sin(alpha) * Mathf.Sin(beta);
 
-            gameController.Spawn(enemy,position, Quaternion.identity);
+                gameController.Spawn(enemy, position, Quaternion.identity);
+                gameController.SpawnInit(enemy);
+
+            }
+            
+
         }
 	}
     private float modifyPosition(float current, float range)

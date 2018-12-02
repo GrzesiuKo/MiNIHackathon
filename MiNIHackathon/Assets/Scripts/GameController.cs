@@ -55,7 +55,7 @@ public class GameController : MonoBehaviour {
         SpawnInit(spawnedObject);
     }
 
-    private void SpawnInit(Spawnable spawnedObject)
+    public void SpawnInit(Spawnable spawnedObject)
     {
         spawnedObject.Init(Cursor);
         var rigidbody = spawnedObject.GetComponent<Rigidbody>();
