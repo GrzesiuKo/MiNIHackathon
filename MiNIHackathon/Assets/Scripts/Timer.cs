@@ -29,12 +29,14 @@ public class Timer : MonoBehaviour {
                 float R = 3;
 
                 position.x = position.x + R * Mathf.Cos(alpha) * Mathf.Sin(beta);
+
                 position.y = position.y + R * Mathf.Cos(beta);
                 position.z = position.z + R * Mathf.Sin(alpha) * Mathf.Sin(beta);
-
+                
+                enemy.GetComponent<Move>().setTree(TreeGameObject.transform);
                 gameController.Spawn(enemy, position, Quaternion.identity);
-                gameController.SpawnInit(enemy);
-
+                
+                enemy.GetComponent<Rigidbody>().isKinematic = false;
             }
             
 
